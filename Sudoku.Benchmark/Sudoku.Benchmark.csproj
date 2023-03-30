@@ -2,14 +2,21 @@
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>net7.0</TargetFramework>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="BenchmarkDotNet" Version="0.13.5" />
-    <PackageReference Include="Google.OrTools" Version="9.5.2237" />
+    <PackageReference Include="SimnOpt.Heuristics" Version="1.0.4" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Sudoku.Backtracking\Sudoku.Backtracking.csproj" />
+    <ProjectReference Include="..\Sudoku.ORTools\Sudoku.ORTools.csproj" />
     <ProjectReference Include="..\Sudoku.DemoSolver\Sudoku.DemoSolver.csproj" />
     <ProjectReference Include="..\Sudoku.Shared\Sudoku.Shared.csproj" />
+    <ProjectReference Include="..\Sudoku_BERNARD_RECOUVREUX_TRAORE\Sudoku_BERNARD_RECOUVREUX_TRAORE.csproj" />
+    <ProjectReference Include="..\Sudoku.Z3Solver\Sudoku.Z3Solver.csproj" />
+    <ProjectReference Include="..\Sudoku.SimulatedAnnealing\Sudoku.SimulatedAnnealing.csproj" />
+    <ProjectReference Include="..\Sudoku.ChocoSolver\Sudoku.ChocoSolver.csproj" />
+    <ProjectReference Include="..\Sudoku.Solver_HA_JG_AF\Sudoku.Solver_HA_JG_AF.csproj" />
   </ItemGroup>
 </Project>

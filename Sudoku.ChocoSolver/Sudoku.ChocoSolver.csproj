@@ -1,0 +1,21 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <ItemGroup>
+    <ProjectReference Include="..\Sudoku.Shared\Sudoku.Shared.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="IKVM" Version="8.4.5" />
+    <PackageReference Include="IKVM.Image.JDK" Version="8.4.5" />
+  </ItemGroup>
+  <ItemGroup>
+    <IkvmReference Include=".\ChocoSolverJava\out\artifacts\ChocoSolverJava_jar\ChocoSolverJava.jar">
+      <AssemblyName>Sudoku.JavaChocoSolver</AssemblyName>
+      <AssemblyVersion>3.2.1.0</AssemblyVersion>
+      <AssemblyFileVersion>3.0.0.0</AssemblyFileVersion>
+    </IkvmReference>
+  </ItemGroup>
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+</Project>

@@ -43,6 +43,11 @@ namespace Sudoku.Benchmark
                 //MacInstaller.InstallPath = "/Users/jesse/opt/anaconda3/envs";
                 // MacInstaller.PythonDirectoryName = "Sudoku";
                 // MacInstaller.LibFileName = "libpython3.7m.dylib";
+                
+                // Environnement dédié PyEnv
+                // MacInstaller.InstallPath = "/Users/theoripoll/.pyenv/versions/3.9.6/lib";
+                // MacInstaller.PythonDirectoryName = "3.7/Lib"; 
+                // MacInstaller.LibFileName = "/Users/theoripoll/.pyenv/versions/3.9.6/lib/libpython3.9.dylib";
 
             }
 
