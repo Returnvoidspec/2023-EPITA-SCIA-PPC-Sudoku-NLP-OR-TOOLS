@@ -36,7 +36,7 @@ namespace ClassLibrary1
 
             int gridSize = 9;
             IntVar[][] grid = new IntVar[gridSize][];
-            var cellDomain = Domain.FromIntervals(new long[][] { new long[] { 1, 9 } });
+            
 
             for (int i = 0; i < gridSize; ++i)
             {
@@ -48,7 +48,7 @@ namespace ClassLibrary1
                         grid[i][j] = model.NewConstant(s.Cells[i][j]);
                     }
                     else
-                        grid[i][j] = model.NewIntVarFromDomain(cellDomain, $"grid{i}{j}");
+                        grid[i][j] = model.NewIntVar(1,9, $"grid{i}{j}");
 
                 }
             }
