@@ -25,6 +25,8 @@ namespace ClassLibrary1
                 for (int i = 0; i < 9; i++)
                     s.Cells[j][i] = (int)solver.Value(grid[j][i]);
             }
+            Console.WriteLine($"Problem solved in {solver.WallTime()}ms");
+            Console.WriteLine($"Memory usage: {Solver.MemoryUsage()}bytes");
             return s;
         }
 
@@ -34,7 +36,8 @@ namespace ClassLibrary1
 
             int gridSize = 9;
             IntVar[][] grid = new IntVar[gridSize][];
-            
+            var cellDomain = Domain.FromIntervals(new long[][] { new long[] { 1, 9 } });
+
             for (int i = 0; i < gridSize; ++i)
             {
                 grid[i] = new IntVar[gridSize]; // Initialize the second dimension
@@ -45,7 +48,8 @@ namespace ClassLibrary1
                         grid[i][j] = model.NewConstant(s.Cells[i][j]);
                     }
                     else
-                        grid[i][j] = model.NewIntVar(1, 9, $"grid{i}{j}");
+                        grid[i][j] = model.NewIntVarFromDomain(cellDomain, $"grid{i}{j}");
+
                 }
             }
 
@@ -84,6 +88,16 @@ namespace ClassLibrary1
                     model.AddAllDifferent(square);
                 }
             }
+            
+            // Add decision strategy
+            var allCells = grid.SelectMany(row => row).ToArray();
+            model.AddDecisionStrategy(
+                allCells,
+                DecisionStrategyProto.Types.VariableSelectionStrategy.ChooseMinDomainSize,
+                DecisionStrategyProto.Types.DomainReductionStrategy.SelectMinValue
+            );
+            
+
             return new Tuple<CpModel, IntVar[][]>(model,grid);
         }
     }
