@@ -3,7 +3,7 @@
     <PropertyGroup>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
-        <LangVersion>10</LangVersion>
+        <LangVersion>11</LangVersion>
         <RootNamespace>ClassLibrary1</RootNamespace>
         <TargetFramework>net7.0</TargetFramework>
         <OutputType>Exe</OutputType>

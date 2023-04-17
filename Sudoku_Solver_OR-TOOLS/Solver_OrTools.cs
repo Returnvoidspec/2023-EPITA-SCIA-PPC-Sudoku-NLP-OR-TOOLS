@@ -27,6 +27,7 @@ namespace ClassLibrary1
             }
             Console.WriteLine($"Problem solved in {solver.WallTime()}ms");
             Console.WriteLine($"Memory usage: {Solver.MemoryUsage()}bytes");
+            Console.WriteLine("Problem solved in " + solver.NumBranches() + " number of branches");
             return s;
         }
 

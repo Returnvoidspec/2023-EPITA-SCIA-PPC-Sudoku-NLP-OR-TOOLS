@@ -1,4 +1,13 @@
-﻿
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using Google.OrTools.ConstraintSolver;
+using Sudoku.Shared;
+
+
+using IntVar = Google.OrTools.Sat.IntVar;
 using Sudoku.Shared;
 using System.Linq;
 namespace ClassLibrary1;
@@ -27,10 +36,13 @@ public class Sudoku_Solver_OR_TOOLS_MIP : ISudokuSolver
                 }
             }
         }
+        Console.WriteLine("Problem solved in " + solver.Iterations() + " iterations");
+        Console.WriteLine($"Problem solved in {solver.WallTime()}ms");
+        Console.WriteLine($"Memory usage: {Google.OrTools.ConstraintSolver.Solver.MemoryUsage()}bytes");
         return s;
     }
 
-    private Tuple<Solver,Dictionary<(int,int,int),Variable>> SolverSetUp(SudokuGrid s)
+    public Tuple<Solver,Dictionary<(int,int,int),Variable>> SolverSetUp(SudokuGrid s)
     {
         int gridSize = 9;
         Solver solver = new Solver("test",Solver.OptimizationProblemType.CBC_MIXED_INTEGER_PROGRAMMING);
